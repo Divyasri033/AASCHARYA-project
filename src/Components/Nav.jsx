@@ -15,20 +15,20 @@ const Navbar = () => {
   return (
     <>
       <nav style={styles.navbar}>
-        {/* Left: Brand */}
-        <div style={styles.brand}>AASCHARYA</div>
+        {/* Brand */}
+        <div style={styles.brand}>AASCHARYÁ</div>
 
         {/* Desktop Links */}
         {!isMobile && (
           <div style={styles.linksContainer}>
-            <Link to="/" style={styles.link}>Home</Link>
+            <Link to="/" style={styles.link}></Link>
             <Link to="/videos" style={styles.link}>Videos</Link>
             <Link to="/listen" style={styles.link}>Listen</Link>
             <Link to="/more" style={styles.link}>More</Link>
           </div>
         )}
 
-        {/* Hamburger Menu Button */}
+        {/* Hamburger Menu (for Mobile) */}
         {isMobile && (
           <button
             style={styles.hamburger}
@@ -42,7 +42,7 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown Menu */}
       {isMobile && menuOpen && (
         <div style={styles.mobileMenu}>
           <Link to="/" style={styles.mobileLink} onClick={() => setMenuOpen(false)}>Home</Link>
@@ -60,54 +60,57 @@ const styles = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "10px 20px",
-   // backgroundColor: "#f7f5f5ff", // Restored background color
-    color: "red",
-    position: "sticky",
+    padding: "12px 40px",
+    position: "fixed", // ✅ stays at top
     top: 0,
+    left: "-80px",
+    width: "100%",
     zIndex: 1000,
+    background: "transparent", // ✅ no white background
+    boxShadow: "none", // ✅ removes shadow
+    color: "red",
   },
   brand: {
     fontWeight: "bold",
     fontSize: "30px",
-    order: 1,
+    position:"relative",
+    left:"50px",
   },
   linksContainer: {
     display: "flex",
-    gap: "20px",
-    order: 2,
+    gap: "25px",
   },
   link: {
     color: "red",
     textDecoration: "none",
     fontWeight: "bold",
-    fontSize: "20px", // Increased font size for desktop links
+    fontSize: "20px",
+    transition: "color 0.3s",
   },
   hamburger: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    width: "30px", // Increased width
-    height: "25px", // Increased height
+    width: "30px",
+    height: "25px",
     background: "none",
     border: "none",
     cursor: "pointer",
     padding: 0,
-    order: 2,
-    zIndex: 1001, // Ensure it's above other elements
+    zIndex: 1001,
   },
   bar: {
-    height: "4px", // Increased height for visibility
+    height: "4px",
     width: "100%",
-    backgroundColor: "red", // Changed to red to match navbar text color
+    backgroundColor: "red",
     transition: "0.3s",
-    borderRadius: "2px", // Added rounded corners
+    borderRadius: "2px",
   },
   mobileMenu: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#333",
-    position: "absolute",
+    backgroundColor: "rgba(0,0,0,0.9)", // ✅ darker overlay for readability
+    position: "fixed",
     top: "60px",
     left: 0,
     width: "100%",
@@ -118,7 +121,7 @@ const styles = {
     color: "white",
     textDecoration: "none",
     padding: "10px 20px",
-    fontSize: "18px", // Increased font size for mobile links
+    fontSize: "18px",
     fontWeight: "bold",
   },
 };
