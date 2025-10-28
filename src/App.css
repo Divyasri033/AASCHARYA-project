@@ -1,0 +1,12 @@
+/* Make the whole page background red */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: red;
+}
+
+/* Make sure your main React root fills the screen */
+#root {
+  min-height: 100vh;
+  background-color: transparent;
+}

@@ -1,9 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Image from "../assets/Canva bg_1.jpeg";
+import Image from "../assets/Canva bg.jpeg";
 
 const More = () => {
   const navigate = useNavigate();
+  
+  const containerStyle = {
+    border: "6px solid #C00000", // Added red border
+    boxSizing: "border-box", // Ensures border is included in dimensions
+    minHeight: "100vh",
+    overflow: "hidden" // Prevents content from spilling over border
+  };
   
   const backgroundStyle = {
     backgroundImage: `url(${Image})`,
@@ -18,7 +25,7 @@ const More = () => {
   };
 
   const buttonStyle = {
-    padding: '13px 25px',
+    padding: '19px 30px',
     borderRadius: '50px',
     fontSize: '18px',
     fontWeight: 'bold',
@@ -26,11 +33,10 @@ const More = () => {
     transition: 'all 0.3s ease',
     textTransform: 'uppercase',
     backdropFilter: 'blur(5px)',
-    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
     width: '180px',
+    border: 'none',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    color: 'white',
-    border: 'none'
+    color: 'white'
   };
 
   const buttonContainerStyle = {
@@ -49,25 +55,27 @@ const More = () => {
   };
 
   return (
-    <div style={backgroundStyle}>
-      {/* Buttons on the right side */}
-      <div style={buttonContainerStyle}>
-        <button 
-          style={buttonStyle}
-          onClick={handleBtsClick}
-          onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
-          onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
-        >
-          BTS
-        </button>
-        <button 
-          style={buttonStyle}
-          onClick={handleFollowUsClick}
-          onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
-          onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
-        >
-          Follow Us
-        </button>
+    <div style={containerStyle}>
+      <div style={backgroundStyle}>
+        {/* Buttons on the right side */}
+        <div style={buttonContainerStyle}>
+          <button 
+            style={buttonStyle}
+            onClick={handleBtsClick}
+            onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
+          >
+            BTS
+          </button>
+          <button 
+            style={buttonStyle}
+            onClick={handleFollowUsClick}
+            onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
+          >
+            Follow 
+          </button>
+        </div>
       </div>
     </div>
   );

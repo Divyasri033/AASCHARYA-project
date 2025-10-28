@@ -31,15 +31,11 @@ const Home = () => {
     }, 1200);
   };
 
-  const handleInProgressClick = () => {
-    alert("This feature is currently in progress. Stay tuned for updates!");
-  };
-
   // Define the sparkle button style for Listen button
   const listenSparkleButton = {
     position: "relative",
     background: "transparent",
-    border: "2px solid red",
+    border: "2px solid white",
     color: "white",
     fontSize: "22px",
     fontWeight: "bold",
@@ -55,7 +51,7 @@ const Home = () => {
   const musicVideoSparkleButton = {
     position: "relative",
     background: "transparent",
-    border: "2px solid #ff0000",
+    border: "2px solid #efe4e4ff",
     color: "white",
     fontSize: "22px",
     fontWeight: "bold",
@@ -71,7 +67,7 @@ const Home = () => {
   const lyricalVideoSparkleButton = {
     position: "relative",
     background: "transparent",
-    border: "2px solid #6a1b9a",
+    border: "2px solid #fbf8fdff",
     color: "white",
     fontSize: "22px",
     fontWeight: "bold",
@@ -126,7 +122,7 @@ const Home = () => {
   });
 
   return (
-    <div>
+    <div style={styles.container}>
       {/* ====== Video Section ====== */}
       <section style={styles.videoSection}>
         <video
@@ -143,7 +139,7 @@ const Home = () => {
           <div style={styles.buttons}>
             {/* Sparkle Button for Listen/Stream */}
             <button style={listenSparkleButton} onClick={handleListenClick}>
-             🎧🎶 Listen /Stream
+              Listen /Stream
               {/* Sparkle symbols with different sizes for more dynamic effect */}
               <span style={listenSparkleSymbol(-1, 0, 0, 20)}>✧˖°</span>
               <span style={listenSparkleSymbol(1, 0, 0.1, 18)}>✧˖°</span>
@@ -155,7 +151,7 @@ const Home = () => {
             
             {/* Sparkle Button for Music Video */}
             <button style={musicVideoSparkleButton} onClick={handleMusicVideoClick}>
-             🎥 ▶️ Watch the Music video
+              Watch the Music video
               {/* Sparkle symbols with different sizes for more dynamic effect */}
               <span style={musicVideoSparkleSymbol(-1, 0, 0, 20)}>✧˖°</span>
               <span style={musicVideoSparkleSymbol(1, 0, 0.1, 18)}>✧˖°</span>
@@ -167,7 +163,7 @@ const Home = () => {
             
             {/* Sparkle Button for Lyrical Video */}
             <button style={lyricalVideoSparkleButton} onClick={handleLyricalVideoClick}>
-              🎬 Watch the Lyrical Video
+               Watch the Lyrical Video
               {/* Sparkle symbols with different sizes for more dynamic effect */}
               <span style={lyricalVideoSparkleSymbol(-1, 0, 0, 20)}>✧˖°</span>
               <span style={lyricalVideoSparkleSymbol(1, 0, 0.1, 18)}>✧˖°</span>
@@ -176,8 +172,6 @@ const Home = () => {
               <span style={lyricalVideoSparkleSymbol(-0.7, -0.7, 0.4, 18)}>✧˖°</span>
               <span style={lyricalVideoSparkleSymbol(0.7, 0.7, 0.5, 20)}>✧˖°</span>
             </button>
-            
-           
           </div>
         </div>
       </section>
@@ -222,11 +216,16 @@ const Home = () => {
 
 // ====== Inline Styles ======
 const styles = {
+  container: {
+    border: "6px solid #C00000", // Added red border around the entire content
+    boxSizing: "border-box", // Ensures border is included in dimensions
+    minHeight: "100vh",
+    overflow: "hidden" // Prevents content from spilling over border
+  },
   videoSection: {
     position: "relative",
     height: "100vh",
     width: "100%",
-    
     overflow: "hidden",
   },
   video: {

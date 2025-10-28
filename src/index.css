@@ -1,0 +1,8 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  border: "8px solid #C00000";
+  box-sizing: border-box;
+  min-height: 100vh;
+}
