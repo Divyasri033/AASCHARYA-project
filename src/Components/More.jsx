@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Image from "../assets/Canva bg.jpeg";
+import Image from "../assets/morebg.svg";
 
 const More = () => {
   const navigate = useNavigate();
