@@ -108,8 +108,8 @@ const styles = {
   brand: {
     fontWeight: "bold",
     fontSize: "46px",
-    fontFamily: "'AcidDrop', cursive",
-    color: "red",
+    fontFamily: "'SuperShiny', cursive",
+    color: "white",
     letterSpacing: "1px",
   },
 };

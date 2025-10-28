@@ -1,8 +1,6 @@
-
-body {
-  margin: 0;
-  padding: 0;
-  border: "8px solid #C00000";
-  box-sizing: border-box;
-  min-height: 100vh;
+@font-face {
+  font-family: 'SuperShiny';
+  src: url('./assets/fonts/SuperShiny.ttf.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
