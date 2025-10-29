@@ -27,7 +27,6 @@ const Navbar = () => {
           <Link to="/more" style={styles.link}>
             MORE
           </Link>
-         
         </div>
       </nav>
 
@@ -35,7 +34,9 @@ const Navbar = () => {
       <div
         style={isMobile ? styles.brandContainerMobile : styles.brandContainer}
       >
-        <div style={styles.brand}>AASCHARYÁ</div>
+        <Link to="/" style={styles.brandLink}>
+          <div style={styles.brand}>AASCHARYÁ</div>
+        </Link>
       </div>
     </>
   );
@@ -82,7 +83,7 @@ const styles = {
   },
 
   link: {
-    color: "red",
+    color: "white",
     textDecoration: "none",
     fontFamily: "serif",
     fontWeight: "400",
@@ -108,9 +109,15 @@ const styles = {
   brand: {
     fontWeight: "bold",
     fontSize: "46px",
-    fontFamily: "'SuperShiny', cursive",
+    fontFamily: "'Femmina', cursive",
     color: "white",
     letterSpacing: "1px",
+  },
+  
+  /* === Brand Link === */
+  brandLink: {
+    textDecoration: "none",
+    cursor: "pointer",
   },
 };
 

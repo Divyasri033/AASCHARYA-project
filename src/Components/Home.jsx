@@ -1,27 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Image from "../assets/download.jpeg";
 
 const Home = () => {
   const navigate = useNavigate();
 
-  const handleListenClick = () => {
-    navigate("/listen");
-  };
+  useEffect(() => {
+    document.body.style.backgroundColor = "#C00000";
+    document.body.style.margin = "0";
 
-  const handleMusicVideoClick = () => {
+    return () => {
+      document.body.style.backgroundColor = "";
+      document.body.style.margin = "";
+    };
+  }, []);
+
+  const handleListenClick = () => navigate("/listen");
+  const handleMusicVideoClick = () =>
     window.open("https://www.youtube.com/@aascharyamusic", "_blank");
-  };
-
-  const handleLyricalVideoClick = () => {
+  const handleLyricalVideoClick = () =>
     window.open("https://www.youtube.com/watch?v=YOUR_LYRICAL_VIDEO_ID", "_blank");
-  };
 
-  // Updated button style with 50px border radius
   const buttonStyle = {
-    padding: "14px 40px", // Original padding
-    borderRadius: "50px", // Changed from 10px to 50px for pill shape
-    fontSize: "22px", // Original font size
+    padding: "14px 40px",
+    borderRadius: "50px",
+    fontSize: "22px",
     fontWeight: "bold",
     cursor: "pointer",
     overflow: "hidden",
@@ -32,7 +35,7 @@ const Home = () => {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     color: "white",
     position: "relative",
-    width: "auto" // Changed from fixed width to auto to accommodate text
+    width: "auto",
   };
 
   return (
@@ -48,35 +51,31 @@ const Home = () => {
           style={styles.video}
         />
 
-        {/* Overlay Buttons */}
         <div style={styles.overlay}>
-          <div style={styles.buttons}>
-            {/* Listen Button */}
-            <button 
+          <div style={styles.buttons} className="home-buttons">
+            <button
               style={buttonStyle}
               onClick={handleListenClick}
-              onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "rgba(255, 0, 0, 0.7)")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "rgba(0, 0, 0, 0.5)")}
             >
               Listen/Stream
             </button>
-            
-            {/* Music Video Button */}
-            <button 
+
+            <button
               style={buttonStyle}
               onClick={handleMusicVideoClick}
-              onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "rgba(255, 0, 0, 0.7)")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "rgba(0, 0, 0, 0.5)")}
             >
               Watch The Music Video
             </button>
-            
-            {/* Lyrical Video Button */}
-            <button 
+
+            <button
               style={buttonStyle}
               onClick={handleLyricalVideoClick}
-              onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "rgba(255, 0, 0, 0.7)")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "rgba(0, 0, 0, 0.5)")}
             >
               Watch The Lyrical Video
             </button>
@@ -86,15 +85,33 @@ const Home = () => {
 
       {/* ====== Image Section ====== */}
       <section style={styles.imageSection}>
-        <img
-          src={Image}
-          alt="Aascharya Music Vibe"
-          style={styles.image}
-        />
+        <img src={Image} alt="Aascharya Music Vibe" style={styles.image} />
         <div style={styles.imageOverlay}>
           <h2 style={styles.imageText}></h2>
         </div>
       </section>
+
+      {/* 💡 Collab section removed — handled globally in App.jsx */}
+
+      <style>
+        {`
+          @media (max-width: 768px) {
+            .home-buttons button {
+              padding: 10px 25px !important;
+              font-size: 16px !important;
+              border-radius: 40px !important;
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .home-buttons button {
+              padding: 8px 20px !important;
+              font-size: 14px !important;
+              border-radius: 35px !important;
+            }
+          }
+        `}
+      </style>
     </div>
   );
 };
@@ -102,10 +119,10 @@ const Home = () => {
 // ====== Inline Styles ======
 const styles = {
   container: {
-    border: "6px solid #C00000", // Added red border around the entire content
-    boxSizing: "border-box", // Ensures border is included in dimensions
+    border: "6px solid #C00000",
+    boxSizing: "border-box",
     minHeight: "100vh",
-    overflow: "hidden" // Prevents content from spilling over border
+    overflow: "hidden",
   },
   videoSection: {
     position: "relative",
@@ -124,13 +141,13 @@ const styles = {
   },
   overlay: {
     position: "absolute",
-    bottom: "5%", // Adjusted for better positioning
+    bottom: "5%",
     left: "50%",
     transform: "translateX(-50%)",
     textAlign: "center",
     color: "#fff",
     zIndex: 1,
-    width: "100%"
+    width: "100%",
   },
   buttons: {
     display: "flex",
@@ -173,7 +190,7 @@ const styles = {
     letterSpacing: "2px",
     textShadow: "0 2px 10px rgba(0,0,0,0.5)",
     maxWidth: "800px",
-    marginTop: "0", // Removed large margin
+    marginTop: "0",
   },
 };
 

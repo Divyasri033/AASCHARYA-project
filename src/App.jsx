@@ -8,6 +8,7 @@ import Videos from "./Components/Videos";
 import Footer from "./Components/Footer";
 import Bts from "./Components/Bts";
 import FollowUs from "./Components/FollowUs";
+import CollaborationSection from "./Components/Collab";
 
 
 
@@ -31,7 +32,7 @@ const App = () => {
              
           </Routes>
         </div>
-        
+        <CollaborationSection />
         {/* Footer */}
         <Footer />
       </div>

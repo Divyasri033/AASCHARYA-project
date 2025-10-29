@@ -1,49 +1,61 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Image from "../assets/morebg.svg";
 
 const More = () => {
   const navigate = useNavigate();
-  
+
+  // ✅ Apply red background and margin reset when page loads
+  useEffect(() => {
+    document.body.style.backgroundColor = "#C00000";
+    document.body.style.margin = "0";
+
+    // Cleanup when leaving this page (optional)
+    return () => {
+      document.body.style.backgroundColor = "";
+      document.body.style.margin = "";
+    };
+  }, []);
+
   const containerStyle = {
-    border: "6px solid #C00000", // Added red border
-    boxSizing: "border-box", // Ensures border is included in dimensions
+    border: "6px solid #C00000", // Red border around content
+    boxSizing: "border-box",
     minHeight: "100vh",
-    overflow: "hidden" // Prevents content from spilling over border
+    overflow: "hidden",
   };
-  
+
   const backgroundStyle = {
     backgroundImage: `url(${Image})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    paddingRight: '40px'
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    paddingRight: "40px",
   };
 
   const buttonStyle = {
-    padding: '19px 30px',
-    borderRadius: '50px',
-    fontSize: '18px',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    textTransform: 'uppercase',
-    backdropFilter: 'blur(5px)',
-    width: '180px',
-    border: 'none',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    color: 'white'
+    padding: "19px 30px",
+    borderRadius: "50px",
+    fontSize: "18px",
+    fontWeight: "bold",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    textTransform: "uppercase",
+    backdropFilter: "blur(5px)",
+    width: "180px",
+    border: "none",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    color: "white",
   };
 
   const buttonContainerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '25px',
-    marginRight: '-35px'
+    display: "flex",
+    flexDirection: "column",
+    gap: "25px",
+    marginRight: "-35px",
   };
 
   const handleBtsClick = () => {
@@ -51,7 +63,7 @@ const More = () => {
   };
 
   const handleFollowUsClick = () => {
-    navigate("/followus"); // Navigate to the FollowUs page
+    navigate("/followus");
   };
 
   return (
@@ -59,21 +71,30 @@ const More = () => {
       <div style={backgroundStyle}>
         {/* Buttons on the right side */}
         <div style={buttonContainerStyle}>
-          <button 
+          <button
             style={buttonStyle}
             onClick={handleBtsClick}
-            onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
+            onMouseEnter={(e) =>
+              (e.target.style.backgroundColor = "rgba(255, 0, 0, 0.7)")
+            }
+            onMouseLeave={(e) =>
+              (e.target.style.backgroundColor = "rgba(0, 0, 0, 0.5)")
+            }
           >
             BTS
           </button>
-          <button 
+
+          <button
             style={buttonStyle}
             onClick={handleFollowUsClick}
-            onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 0, 0, 0.7)'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'}
+            onMouseEnter={(e) =>
+              (e.target.style.backgroundColor = "rgba(255, 0, 0, 0.7)")
+            }
+            onMouseLeave={(e) =>
+              (e.target.style.backgroundColor = "rgba(0, 0, 0, 0.5)")
+            }
           >
-            Follow 
+            Follow
           </button>
         </div>
       </div>
