@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import bomma from "../assets/Bomma-1.svg"; // Import the SVG file
+import bomma from "../assets/Bomma-1.svg"; // Desktop background
+import Image from "../assets/morebg.svg"; // Mobile background
 
 const FollowUs = () => {
   // ✅ Apply red background and remove margins when this page loads
@@ -7,14 +8,13 @@ const FollowUs = () => {
     document.body.style.backgroundColor = "#C00000";
     document.body.style.margin = "0";
 
-    // Cleanup when leaving this page (optional)
     return () => {
       document.body.style.backgroundColor = "";
       document.body.style.margin = "";
     };
   }, []);
 
-  // Button style that matches the BTS and Follow buttons
+  // Shared button style
   const buttonStyle = {
     padding: "19px 30px",
     borderRadius: "50px",
@@ -33,21 +33,21 @@ const FollowUs = () => {
     textAlign: "center",
   };
 
-  // Title button style (slightly different)
+  // Title button style
   const titleButtonStyle = {
     ...buttonStyle,
-    backgroundColor: "rgba(192, 0, 0, 0.7)", // Red background
+    backgroundColor: "rgba(192, 0, 0, 0.8)",
     cursor: "default",
     border: "2px solid rgba(255, 255, 255, 0.5)",
     marginBottom: "10px",
   };
 
-  // Button container style
+  // Centered button container
   const buttonContainerStyle = {
     position: "absolute",
-    bottom: "10%",
+    top: "50%",
     left: "50%",
-    transform: "translateX(-50%)",
+    transform: "translate(-50%, -50%)",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -58,12 +58,9 @@ const FollowUs = () => {
   return (
     <>
       <div style={styles.container} className="follow-us-container">
-        {/* Social Media Buttons Container */}
         <div style={buttonContainerStyle}>
-          {/* Follow Us On Title */}
           <div style={titleButtonStyle}>Follow AASCHARYÁ</div>
 
-          {/* Instagram */}
           <a
             href="https://www.instagram.com"
             target="_blank"
@@ -79,7 +76,6 @@ const FollowUs = () => {
             Instagram
           </a>
 
-          {/* YouTube */}
           <a
             href="https://www.youtube.com"
             target="_blank"
@@ -95,7 +91,6 @@ const FollowUs = () => {
             YouTube
           </a>
 
-          {/* X (Twitter) */}
           <a
             href="https://x.com"
             target="_blank"
@@ -111,7 +106,6 @@ const FollowUs = () => {
             X
           </a>
 
-          {/* Facebook */}
           <a
             href="https://www.facebook.com"
             target="_blank"
@@ -129,24 +123,47 @@ const FollowUs = () => {
         </div>
       </div>
 
-      {/* Add responsive styles for mobile view */}
+      {/* ✅ Switch backgrounds based on screen size */}
       <style>
         {`
+          .follow-us-container {
+            background-image: url(${bomma});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+            border: 6px solid #C00000;
+            position: relative;
+            overflow: hidden;
+          }
+
+          /* ✅ Mobile View (use morebg.svg) */
           @media (max-width: 768px) {
             .follow-us-container {
-              /* Increased zoom level */
-              background-size: 250% auto !important;
-              /* Adjusted position to keep left doodle centered */
-              background-position: -10% center !important;
+              background-image: url(${Image}) !important;
+              background-size: cover;
+              background-position: center;
+            }
+
+            a {
+              width: 160px !important;
+              font-size: 16px !important;
+              padding: 15px 20px !important;
             }
           }
-          
+
           @media (max-width: 480px) {
             .follow-us-container {
-              /* Even more zoom for smaller screens */
-              background-size: 300% auto !important;
-              /* Adjusted position to keep left doodle centered */
-              background-position: 8% center !important;
+              background-image: url(${Image}) !important;
+              background-size: cover;
+              background-position: center;
+            }
+
+            a {
+              width: 140px !important;
+              font-size: 15px !important;
+              padding: 12px 18px !important;
             }
           }
         `}
@@ -167,7 +184,7 @@ const styles = {
     padding: 0,
     overflow: "hidden",
     position: "relative",
-    border: "6px solid #C00000", // 🔴 Added red border for consistency
+    border: "6px solid #C00000",
     boxSizing: "border-box",
   },
 };

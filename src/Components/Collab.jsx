@@ -19,7 +19,7 @@ const CollaborationSection = () => {
       letterSpacing: "0.3px",
     },
     mailLink: {
-      color: "#fffacd", // soft gold-like highlight for better visibility
+      color: "white", // soft gold-like highlight for better visibility
       textDecoration: "none",
       fontWeight: "700",
     },
