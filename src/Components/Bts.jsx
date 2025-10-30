@@ -39,8 +39,8 @@ const Bts = () => {
                 index === currentIndex
                   ? "translateX(0)"
                   : index < currentIndex
-                  ? "translateX(-100%)"
-                  : "translateX(100%)",
+                    ? "translateX(-100%)"
+                    : "translateX(100%)",
             }}
           >
             <img src={img} alt={`Slide ${index + 1}`} style={styles.image} />

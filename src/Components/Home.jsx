@@ -96,18 +96,32 @@ const Home = () => {
       <style>
         {`
           @media (max-width: 768px) {
+            .home-buttons {
+              flex-direction: column !important;
+              align-items: center !important;
+              gap: 15px !important;
+            }
+            
             .home-buttons button {
-              padding: 10px 25px !important;
-              font-size: 16px !important;
-              border-radius: 40px !important;
+              padding: 12px 30px !important;
+              font-size: 18px !important;
+              border-radius: 45px !important;
+              min-width: 220px !important;
             }
           }
           
           @media (max-width: 480px) {
+            .home-buttons {
+              flex-direction: column !important;
+              align-items: center !important;
+              gap: 12px !important;
+            }
+            
             .home-buttons button {
-              padding: 8px 20px !important;
-              font-size: 14px !important;
-              border-radius: 35px !important;
+              padding: 12px 28px !important;
+              font-size: 17px !important;
+              border-radius: 45px !important;
+              min-width: 210px !important;
             }
           }
         `}
@@ -173,7 +187,7 @@ const styles = {
   imageOverlay: {
     position: "absolute",
     top: 0,
-    left: 0,
+    left: "0",
     width: "100%",
     height: "100%",
     display: "flex",
@@ -183,7 +197,7 @@ const styles = {
     padding: "40px 20px",
   },
   imageText: {
-    color: "#0c0909ff",
+    color: "#0c0909", // Fixed color value (removed the 'ff' at the end)
     fontSize: "2.5rem",
     fontWeight: 700,
     textAlign: "center",

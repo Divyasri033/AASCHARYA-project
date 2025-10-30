@@ -32,7 +32,7 @@ const App = () => {
              
           </Routes>
         </div>
-        <CollaborationSection />
+       <CollaborationSection />
         {/* Footer */}
         <Footer />
       </div>

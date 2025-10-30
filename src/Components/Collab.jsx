@@ -3,24 +3,25 @@ import React from "react";
 const CollaborationSection = () => {
   const styles = {
     collabSection: {
-      backgroundColor: "#8B0000", // same as footer color
+      backgroundColor: "#c00000", // ✅ same as footer color
       color: "#fff",
       textAlign: "center",
-      padding: "25px 10px",
-      borderTop: "1px solid #fff",
-      borderBottom: "1px solid #fff",
+      padding: "35px 15px", // slightly more padding for balance
       width: "100%",
+      margin: 0,
+      border: "none",
     },
     collabText: {
-      fontSize: "1.1rem",
+      fontSize: "1.3rem", // ✅ increased from 1.1rem
       margin: 0,
-      lineHeight: "1.6",
-      fontWeight: 400,
+      lineHeight: "1.8",
+      fontWeight: 500, // slightly bolder
+      letterSpacing: "0.3px",
     },
     mailLink: {
-      color: "#FFD700",
+      color: "#fffacd", // soft gold-like highlight for better visibility
       textDecoration: "none",
-      fontWeight: "600",
+      fontWeight: "700",
     },
   };
 

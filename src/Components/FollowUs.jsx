@@ -61,7 +61,7 @@ const FollowUs = () => {
         {/* Social Media Buttons Container */}
         <div style={buttonContainerStyle}>
           {/* Follow Us On Title */}
-          <div style={titleButtonStyle}>Follow Us On</div>
+          <div style={titleButtonStyle}>Follow AASCHARYÁ</div>
 
           {/* Instagram */}
           <a
@@ -137,7 +137,7 @@ const FollowUs = () => {
               /* Increased zoom level */
               background-size: 250% auto !important;
               /* Adjusted position to keep left doodle centered */
-              background-position: 12% center !important;
+              background-position: -10% center !important;
             }
           }
           
